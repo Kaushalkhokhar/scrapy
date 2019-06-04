@@ -16,6 +16,7 @@ Link: https://pypi.org/project/scrapy-user-agents/
 
 ### rotating IP
 Link:https://github.com/hyan15/scrapy-proxy-pool
+customization can be possible. just go throgh this link
 
 ### general setting in settings.py
 1. ROBOTSTXT_OBEY = True 
@@ -23,3 +24,6 @@ Link:https://github.com/hyan15/scrapy-proxy-pool
   False means does not folllows the robots.txt rules for given url
 
   
+## what I learn 
+1. Class selector tool is provided by google to select class of html page. Very usefull in selecting data.
+  link: https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=en
