@@ -45,3 +45,30 @@ class AmazoneSpider(scrapy.Spider):
         if AmazoneSpider.page_number < 4:
             AmazoneSpider.page_number += 1        
             yield response.follow(next_page, self.parse)
+
+# what is user agent?
+# when we go to any websites it asks the identity of browser(crome/mozila).
+# that identity of browser is know as user agent
+# so to crawl a data, we use google user agent instead of our self
+# and we rotate a user agent so amazon thigs that different google browser is acessing our site
+# to do this we need to install scrapy-user-agents by "pip install scrapy-user-agents"
+# and add middleware file to settings.py file as already added
+# DOWNLOADER_MIDDLEWARES = {
+    #'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    #'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+#}
+
+# what is IP address?
+# location/address of our computer
+# so using someone else Ip known as proxy
+# so to install "pip install scrapy_proxy_pool"
+# to know mroe aboout it fo to "https://github.com/hyan15/scrapy-proxy-pool"
+# we need to add to things as below to settings.py file
+# PROXY_POOL_ENABLED = True
+#      and
+# DOWNLOADER_MIDDLEWARES = {
+    # ...
+    #'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
+    #'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
+    # ...
+#}

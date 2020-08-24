@@ -17,14 +17,13 @@ NEWSPIDER_MODULE = 'amazon.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'amazon (+http://www.yourdomain.com)'
-#USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-
+USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' # this User Agent we get from this link -> "https://developers.whatismybrowser.com/useragents/explore/software_name/googlebot/"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
 # for rotating IP
-#PROXY_POOL_ENABLED = True
+# PROXY_POOL_ENABLED = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32

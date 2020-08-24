@@ -1,5 +1,6 @@
 import scrapy
 from scrapy.http import FormRequest
+from scrapy.utils.response import open_in_browser
 from ..items import SrcScrapyItem
 
 '''class QuotesSpider(scrapy.Spider):
@@ -94,7 +95,7 @@ from ..items import SrcScrapyItem
 class QuotesSpider(scrapy.Spider):
     name = "quotes"
     page_number = 2 # this is not needed in method 1
-    start_urls = [Ama
+    start_urls = [
         'http://quotes.toscrape.com/login',        
     ]
 
@@ -108,6 +109,7 @@ class QuotesSpider(scrapy.Spider):
         }, callback=self.start_scrapping)
 
     def start_scrapping(self, response):
+        open_in_browser(response) # this opens a web page with logout path, menas we hae logged in
         items = SrcScrapyItem()
 
         for quote in response.css('div.quote'):
@@ -134,6 +136,16 @@ class QuotesSpider(scrapy.Spider):
             QuotesSpider.page_number += 1        
             yield response.follow(next_page, self.start_scrapping)
 
+
+
+# css is one of thre method to select item
+# name_of_iphone = response.css('.a-color-base.a-text-normal::text').extract()
+# xpath is used for the same thing. To select the name of iphon in amazon
+# name_of_iphone = response.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "a-color-base", " " )) and contains(concat( " ", @class, " " ), concat( " ", "a-text-normal", " " ))]/text ()').extract()
+# css and xpath to select href in ancor tag
+# name_of_iphone = response.css("li.a-last a").xpath("@href").extract()
+# to get all the href in that page
+# name_of_iphone = response.css("a").xpath("@href").extract()
 
 # to crrate json file of extracted data we ahve to write scrapy crawl <name of spider> -o <filename>.<format> here format can be json, xml
 # to store data to databse we need to create pipline. to do that in settings.py uncomment pipline. 
